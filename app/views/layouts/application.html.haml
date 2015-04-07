@@ -1,0 +1,19 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %title ServerTools
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag :application
+    = csrf_meta_tags
+
+  %body
+    .navbar
+      .navbar-inner
+        .brand
+          = yield :brand
+        %ul.nav
+          = yield :nav_links
+    #page-content
+      = yield

@@ -1,0 +1,16 @@
+.row-fluid
+  .span5
+    .well.well-small
+      = render 'form'
+  .span7
+    = text_area_tag :tt, @ip.results.join("\n"), style: 'width: 98%; height: 350px; padding: 10px', readonly: 'true'
+    Copy the text above and paste in /etc/network/interfaces file
+    to activate ips run the command:
+    %pre
+      = @ip.command unless @ip.results.empty?
+
+- unless @ip.invalid_ranges.empty?
+  .alert.alert-danger
+    %h4 You have invalid ranges in list:
+    = @ip.invalid_ranges.join('<br>').html_safe
+

@@ -1,0 +1,8 @@
+= render 'form'
+
+.well(style="display:none")
+  - @arin.results.each do |req|
+    .pull-right
+      = request_link(req)
+    = req.gsub("\n", '<br>').html_safe
+    %hr

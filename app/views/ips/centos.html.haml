@@ -1,0 +1,8 @@
+- content_for :brand do
+  = 'Generate IPs range'
+- content_for :nav_links do
+  %li= link_to 'Debian', debian_ips_path
+  %li.active= link_to 'CentOS', centos_ips_path
+
+#results
+  = render 'centos_results'

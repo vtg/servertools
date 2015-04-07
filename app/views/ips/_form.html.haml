@@ -1,0 +1,11 @@
+= simple_form_for @ip, remote: true do |f|
+  .form-horizontal
+    = f.hidden_field :os
+    = f.input :interface
+    = f.input :range_num, label: 'First Range Number' if @ip.os.to_s == 'centos'
+    = f.input :alias_num, label: 'First Alias Number'
+    = f.input :all_usable, as: :boolean
+    = f.input :address, as: :text, label: 'Ranges', hint: 'one range per line:<br>127.0.0.1/27<br>128.0.0.1/27'.html_safe, input_html: { style: 'height: 100px'}
+
+    .form-actions
+      = f.submit 'Generate', :class => 'btn btn-primary btn-large'

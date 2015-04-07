@@ -1,0 +1,30 @@
+= simple_form_for @arin, remote: true do |f|
+  .form-horizontal
+    .row-fluid
+      .span6
+        %h4 General
+        .well
+          = f.input :api_key, label: 'API Key'
+          = f.input :reg_action, collection: %w(N M R), label: 'Registration Action', include_blank: false,
+                    input_html: { class: 'input-mini'}
+          = f.input :network_name, label: 'Network Name'
+          = f.input :ip_address, as: :text, label: 'IP Address and Prefix or Range',
+                    hint: 'one per line',
+                    input_html: { style: 'height: 100px; width: 99%' }
+          = f.input :origin, label: 'Origin AS'
+          = f.input :private, collection: %w(No Yes), as: :radio_buttons, label: 'Private'
+          = f.input :comments, as: :text, label: 'Public Comments', input_html: { style: 'height: 100px; width: 99%' }
+      .span6
+        %h4 Customer Information
+        .well
+          = f.input :customer_name, label: 'Name'
+          = f.input :customer_address, label: 'Address', input_html: { class: 'input-xlarge'}
+          = f.input :customer_city, label: 'City'
+          = f.input :customer_state, label: 'State/Province'
+          = f.input :customer_postal, label: 'Postal Code', input_html: { class: 'input-small'}
+          = f.input :customer_country, as: :string, label: 'Country Code', input_html: { class: 'input-mini'}
+        %h4 Mail Request To
+        .well
+          = f.input :mail_to, label: 'Mail To'
+          = f.input :subject, label: 'Email Subject'
+        = f.submit 'Generate', class: 'btn btn-primary btn-large'

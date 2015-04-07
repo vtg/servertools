@@ -1,0 +1,12 @@
+@import 'compass_twitter_bootstrap_awesome';
+@import 'arins';
+@import 'ips';
+//@import 'scaffolds';
+
+.navbar-inner {
+  @include border-radius(0);
+}
+
+#page-content {
+  padding: 20px;
+}

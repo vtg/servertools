@@ -1,0 +1,22 @@
+.row-fluid
+  .span5
+    .well.well-small
+      = render 'form'
+  .span7
+    - @ip.results.each do |res|
+      = 'file name: '
+      %b= res[:file]
+      %pre= res[:content].gsub(' ', '')
+
+    Put the files with content above into
+    %b /etc/sysconfig/network-scripts/
+    %br
+    To activate ips run the command:
+    %pre
+      = @ip.command
+
+- unless @ip.invalid_ranges.empty?
+  .alert.alert-danger
+    %h4 You have invalid ranges in list:
+    = @ip.invalid_ranges.join('<br>').html_safe
+
